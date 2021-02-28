@@ -13,6 +13,7 @@ print(f"Selected cities is: {my_cnt}")
 
 arcpy.management.SelectLayerByLocation(flayer, "WITHIN_A_DISTANCE", "us_rivers", "10 miles", "SUBSET_SELECTION")
 
+
 my_cnt = arcpy.management.GetCount(flayer)
 print(f"Selected cities is: {my_cnt}")
 
