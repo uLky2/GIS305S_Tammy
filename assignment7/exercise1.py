@@ -3,6 +3,7 @@ arcpy.env.workspace = r"C:\Users\David Neufeld\Documents\ArcGIS\GIS305\Data\Admi
 arcpy.env.overwriteOutput = True
 arcpy.SelectLayerByAttribute_management("cities", "CLEAR_SELECTION")
 
+
 flayer = arcpy.MakeFeatureLayer_management("cities", "Cities_Layer")
 
 qry = "POP1990 > 20000"
