@@ -30,11 +30,17 @@ def main():
 
     # Buffer cities
     input_gdb = r"C:\Users\David Neufeld\Documents\ArcGIS\GIS305\Data\Admin\AdminData.gdb\USA\\"
+
+    # Change me this next line below to use GetParamters!!
     dist = input("What buffer distance do you want to use?")
+
     buf_cities = buffer_layer(input_gdb, "cities", dist)
+
+    # Change me this next line below to use GetParamters!!
     print("Buffer layer " + buf_cities + " created.")
 
     # Buffer rivers
+    # Change me this next line below to use GetParamters!!
     dist = input("What buffer distance do you want to use?")
     buf_rivers = buffer_layer(input_gdb, "us_rivers", dist)
     print("Buffer layer " + buf_rivers + " created.")
@@ -42,6 +48,7 @@ def main():
     # Define lyr_list variable
     # with names of input layers to intersect
     # Ask the user to define an output layer name
+    # Change me this next line below to use GetParamters!!
     intersect_lyr_name = input("What is the name for your output layer resulting from the intersect analysis? ")
     lyr_list = [buf_rivers, buf_cities]
     intersect(lyr_list, intersect_lyr_name)
