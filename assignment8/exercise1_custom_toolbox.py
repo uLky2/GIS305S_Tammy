@@ -31,7 +31,7 @@ def main():
 
     buf_cities = buffer_layer(input_gdb, "cities", dist)
 
-    # Change me this next line below to use GetParamters!!
+    # Change me this next line below to use GetParameters!!
     print("Buffer layer " + buf_cities + " created.")
 
     # Buffer rivers
