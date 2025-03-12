@@ -2,7 +2,6 @@ import arcpy
 
 
 def intersect(layer_list, input_lyr_name):
-    # Run a intersect analysis between the two buffer layers (needs to be a list of layers to intersect)
     arcpy.Intersect_analysis(layer_list, input_lyr_name)
 
 def buffer_layer(input_gdb, input_layer, dist):
@@ -60,7 +59,6 @@ def main():
     map_doc = aprx.listMaps()[0]
     map_doc.addDataFromPath(rf"C:\Users\Arc_U\Desktop\GIS3005\Assignment1\Assignment1.gdb\{intersect_lyr_name}")
 
-    # Save the project as a new file (if needed)
     aprx.saveACopy(r"C:\Users\Arc_U\Desktop\Assignment1_test.aprx")
 
 
