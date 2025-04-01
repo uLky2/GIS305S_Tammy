@@ -13,4 +13,4 @@ class SpatialEtl:
     def transform(self):
         print(f"Transforming {self.data_format}")
     def load(self):
-        print(f"Loading data into {self.destination}");
+        print(f"Loading data into {self.destination}")

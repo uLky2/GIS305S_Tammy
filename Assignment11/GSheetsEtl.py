@@ -9,4 +9,4 @@ class GSheetsEtl(SpatialEtl):
     def process(self):
         super().extract()
         super().transform()
-        super().load();
+        super().load()
