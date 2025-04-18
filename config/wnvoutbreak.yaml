@@ -1,0 +1,8 @@
+remote_url: "https://docs.google.com/spreadsheets/d/12qd-SoCD9J5Kt2rVZEBzc-nypWK3M6C9lTddO5VsSrQ/export?format=csv&gid=364997080"
+proj_dir: "C:\\Users\\Arc_U\\Desktop\\GIS3005\\Assignment7\\GIS305S_Tammy"
+data_format: "csv"
+geocoder_prefix_url: "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address="
+geocoder_suffix_url: "&benchmark=2020&format=json"
+partial_address_file: "C:\\Users\\Arc_U\\Downloads\\addresses.csv"
+
+
