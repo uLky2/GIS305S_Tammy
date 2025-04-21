@@ -96,6 +96,17 @@ def count_addresses_within_intersect(joined_feature_class):
     count = arcpy.GetCount_management(joined_feature_class)
     logging.info(f"Total addresses in the potential area: {count[0]}")
 
+
+def exportMap(config_dict):
+    aprx = arcpy.mp.ArcGISProject(f"{config_dict.get('proj_dir')}Lab1_3005.aprx")
+    lyt = aprx.listLayouts()[0]
+    subtitle = input("Enter subtitle: ")
+
+    for el in lyt.listElements():
+        if "Title" in el.name:
+            el.text += f"\n{subtitle}"
+
+
 if __name__ == "__main__":
     config_dict = setup()
     print(config_dict)
