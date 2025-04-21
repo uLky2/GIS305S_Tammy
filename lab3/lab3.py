@@ -3,22 +3,11 @@ import os
 import requests
 from GSheetsEtl import GSheetsEtl
 from wnvoutbreak import setup
+import yaml
 
 # My log exercise module
 
 import logging
-
-logging.basicConfig(level=logging.DEBUG,
-                    filename='app.log',
-                    filemode='w',
-                    format='%(name)s - '
-                            '%(levelname)s - '
-                            '%(message)s')
-
-logging.debug('This is a debug statement')
-logging.info('This will get logged to a file')
-logging.warning('This is a warning')
-logging.error('This is an error!')
 
 def etl(config_dict):
     print("etling...")
@@ -30,6 +19,25 @@ def etl(config_dict):
 arcpy.env.workspace = r"C:\Users\Arc_U\Desktop\GIS3005\Lab1\WestNileOutbreak.gdb"
 arcpy.env.overwriteOutput = True
 input_layer = r"C:\Users\Arc_U\Desktop\GIS3005\Lab1\WestNileOutbreak.gdb\Mosquito_Larval_Sites"
+
+def setup():
+    with open(r'C:\Users\Arc_U\Desktop\GIS3005\Assignment7\GIS305S_Tammy\config\wnvoutbreak.yaml') as f:
+        config_dict = yaml.load(f, Loader=yaml.FullLoader)
+
+    logging.basicConfig(
+        filename=f"{config_dict.get('proj_dir')}wnv.log",
+        filemode="w",
+        level=logging.DEBUG,
+        format='%(name)s - %(levelname)s - %(message)s'
+    )
+
+    logging.debug('This is a debug statement')
+    logging.info('This will get logged to a file')
+    logging.warning('This is a warning')
+    logging.error('This is an error!')
+
+    return config_dict
+
 
 
 def buffer_layer(layer, distance):
