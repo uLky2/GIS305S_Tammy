@@ -106,6 +106,9 @@ def exportMap(config_dict):
         if "Title" in el.name:
             el.text += f"\n{subtitle}"
 
+    output_pdf = f"{config_dict.get('proj_dir')}WestNileMap.pdf"
+    lyt.exportToPDF(output_pdf)
+    logging.info(f"Exported map to: {output_pdf}")
 
 if __name__ == "__main__":
     config_dict = setup()
