@@ -8,6 +8,12 @@ from SpatialEtl import SpatialEtl
 
 class GSheetsEtl(SpatialEtl):
 
+    """GSheets performs an extract, transform, and load process using a URL to a google spreadsheet.
+    The spreadsheet must an address and zipcode column.
+
+    Parametres: config_dict (Dictionairy): A Dictionairy containing a  remote_url key to the google spreadsheet and web geocoding services
+    """
+
     config_dict = None
     def __init__ (self, config_dict):
         super().__init__(config_dict)
