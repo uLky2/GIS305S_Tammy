@@ -16,6 +16,7 @@ def etl(config_dict):
     logging.debug("Exit etl()")
 
 
+
 # Set environment
 arcpy.env.workspace = r"C:\Users\Arc_U\Desktop\GIS3005\Lab1\WestNileOutbreak.gdb"
 arcpy.env.overwriteOutput = True

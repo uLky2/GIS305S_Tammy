@@ -18,6 +18,10 @@ class GSheetsEtl(SpatialEtl):
     def __init__ (self, config_dict):
         super().__init__(config_dict)
 
+        """
+            Initializes the GSheetsEtl class by calling the parent constructor (SpatialEtl).
+            """
+
     def extract(self):
         print("Extracting addresses from google form spreadsheet")
         r = requests.get(self.config_dict.get('remote_url'))
@@ -26,7 +30,15 @@ class GSheetsEtl(SpatialEtl):
         with open(f"{self.config_dict.get('proj_dir')}addresses.csv", "w") as output_file:
             output_file.write(data)
 
+        """
+            Extracts data from spreadsheet to config dictionary and saves as csv file
+            """
+
     def transform(self):
+
+        """
+            Transforms extracted addresses with geocoding into x,y coords
+        """
         print("Add City, State")
 
         output_path = os.path.join(self.config_dict.get('proj_dir'), 'new_addresses.csv')
@@ -51,6 +63,10 @@ class GSheetsEtl(SpatialEtl):
         transformed_file.close()
 
     def load(self):
+
+        """
+        Loads transformed addresses into ArcPro feature class & converts csv to points
+            """
         arcpy.env.workspace = self.config_dict.get('proj_dir')  # Using proj_dir from config_dict
         arcpy.env.overwriteOutput = True
 
@@ -64,6 +80,10 @@ class GSheetsEtl(SpatialEtl):
         print(arcpy.GetCount_management(out_feature_class))
 
     def process(self):
+
+        """
+            Executes ETL
+        """
         self.extract()
         self.transform()
         self.load()
